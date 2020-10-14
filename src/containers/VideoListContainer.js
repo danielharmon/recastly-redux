@@ -2,21 +2,23 @@ import { connect } from 'react-redux';
 import VideoList from './../components/VideoList.js';
 import changeVideo from './../actions/currentVideo.js';
 
+
+
 var mapStatetoProps = function(state) {
   return {
     videos: state.videos
   }
 }
 
-var mapDispatchToProps = function() {
-
+var mapDispatchToProps = function(dispatch) {
+  return {
+    handleVideoListEntryTitleClick: (videos) =>
+    dispatch(VideoList(videos))
+  };
 }
 
-var VideoListContainer = () => {
+var VideoListContainer = connect(mapStatetoProps, mapDispatchToProps)(VideoList);
 
-
-
-};
 
 //TODO: define a VideoListContainer component which will hook up your action
 // dispatchers with your VideoList component props.

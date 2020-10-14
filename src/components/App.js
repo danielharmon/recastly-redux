@@ -2,9 +2,9 @@ import React from 'react';
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
 import Search from './Search.js';
-import VideoListContainer from '../containers/VideoListContainer.js'
-import VideoPlayerContainer from '../containers/VideoPlayer.js'
-import SearchContainer from '../containers/SearchContainer.js'
+import VideoListContainer from '../containers/VideoListContainer.js';
+import VideoPlayerContainer from '../containers/VideoPlayerContainer.js';
+import SearchContainer from '../containers/SearchContainer.js';
 
 class App extends React.Component {
   constructor(props) {
