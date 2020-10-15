@@ -1,7 +1,7 @@
 import React from 'react';
 
 var VideoPlayer = ({video}) => (
-  !video
+  !video.id
     ? <div className="video-player">Please wait...</div>
     : <div className="video-player">
       <div className="embed-responsive embed-responsive-16by9">

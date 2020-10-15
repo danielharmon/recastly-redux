@@ -3,10 +3,11 @@ import changeVideoList from './videoList.js';
 import changeVideo from './currentVideo.js';
 import YOUTUBE_API_KEY from '../config/youtube.js';
 import thunk from 'redux-thunk';
+import { connect } from 'react-redux';
 
 var handleVideoSearch = (q) => {
 
-  return function() {
+  return function(dispatch) {
 
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&max=5&key=${YOUTUBE_API_KEY}&q=${q}`
 
@@ -27,8 +28,11 @@ var handleVideoSearch = (q) => {
       url: url,
       type: 'GET',
       contentType: 'application/JSON',
-      success: function() {
+      success: function(data) {
         console.log('Success')
+        dispatch(changeVideoList(data.items))
+        dispatch(changeVideo(data.items[0]))
+        //changeVideoList(data.items)
       }
     }).done(data => console.log(data.items))
 
@@ -36,4 +40,4 @@ var handleVideoSearch = (q) => {
 
 };
 
-export default handleVideoSearch;
+export default handleVideoSearch
