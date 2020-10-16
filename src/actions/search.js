@@ -11,30 +11,22 @@ var handleVideoSearch = (q) => {
 
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&max=5&key=${YOUTUBE_API_KEY}&q=${q}`
 
-    // fetch(url)
-    //   .then(data => {
-    //     if (!data.ok) {
-    //       throw Error(data.statusText)
-    //     }
+    fetch(url)
+      .then(data => data.json())
+      .then(videos => dispatch(changeVideoList(videos.items)))
+      .catch((error) => console.error(error))
 
-    //     return data
-
-    //   })
-    //   .then(data => data.json())
-    //   .then(videos => dispatch(changeVideoList(videos.items)))
-    //   .catch((error) => console.error(error))
-
-    $.ajax({
-      url: url,
-      type: 'GET',
-      contentType: 'application/JSON',
-      success: function(data) {
-        console.log('Success')
-        dispatch(changeVideoList(data.items))
-        dispatch(changeVideo(data.items[0]))
-        //changeVideoList(data.items)
-      }
-    }).done(data => console.log(data.items))
+    // $.ajax({
+    //   url: url,
+    //   type: 'GET',
+    //   contentType: 'application/JSON',
+    //   success: function(data) {
+    //     console.log('Success')
+    //     dispatch(changeVideoList(data.items))
+    //     dispatch(changeVideo(data.items[0]))
+    //     //changeVideoList(data.items)
+    //   }
+    // }).done(data => console.log(data.items))
 
   }
 
