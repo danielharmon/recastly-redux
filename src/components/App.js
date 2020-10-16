@@ -7,6 +7,7 @@ import VideoListContainer from '../containers/VideoListContainer.js';
 import VideoPlayerContainer from '../containers/VideoPlayerContainer.js';
 import SearchContainer from '../containers/SearchContainer.js';
 import toggleAutoPlay from '../actions/autoPlay.js';
+import store from '../store/store.js'
 
 const App = () => {
 
@@ -15,7 +16,7 @@ const handleToggle = () => {
   let label = document.getElementById('toggleAuto');
   label.innerText = input.checked ? 'Turn AutoPlay Off' : 'Turn AutoPlay On';
   let autoPlay = input.checked ? '?mute=1&autoplay=1' : ''
-  dispatch(toggleAutoPlay(autoPlay));
+  store.dispatch(toggleAutoPlay(autoPlay));
 
 }
   //TODO: swap out the React components below for the container components
