@@ -13,7 +13,10 @@ var handleVideoSearch = (q) => {
 
     fetch(url)
       .then(data => data.json())
-      .then(videos => dispatch(changeVideoList(videos.items)))
+      .then(videos => {
+        dispatch(changeVideoList(videos.items));
+        dispatch(changeVideo(videos.items[0]));
+      })
       .catch((error) => console.error(error))
 
     // $.ajax({

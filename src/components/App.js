@@ -8,7 +8,11 @@ import SearchContainer from '../containers/SearchContainer.js';
 
 const App = () => {
 
-
+const handleToggle = () => {
+  let input = document.getElementById('toggleAutoPlay');
+  let label = document.getElementById('toggleAuto');
+  label.innerText = input.checked ? 'Turn AutoPlay Off' : 'Turn AutoPlay On'
+}
   //TODO: swap out the React components below for the container components
   //  you wrote in the 'containers' directory.
     return (
@@ -16,6 +20,11 @@ const App = () => {
         <nav className="navbar">
           <div className="col-md-6 col-md-offset-3">
             <SearchContainer />
+            <div className="Auto">
+              <label id="toggleAuto">Turn AutoPlay On?</label>
+              <input type="checkbox" id="toggleAutoPlay" onChange={handleToggle}/>
+            </div>
+
           </div>
         </nav>
         <div className="row">
