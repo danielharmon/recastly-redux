@@ -1,11 +1,17 @@
 import React from 'react';
+import Youtube from 'react-youtube'
 
-var VideoPlayer = ({video}) => (
+var VideoPlayer = ({video, autoPlay}) => (
   !video.id
     ? <div className="video-player">Please wait...</div>
     : <div className="video-player">
+      {/* <Youtube
+      videoId={video.id.videoId}
+      autoplay={true}
+      muted={true}
+      /> */}
       <div className="embed-responsive embed-responsive-16by9">
-        <iframe className="embed-responsive-item" src={`https://www.youtube.com/embed/${video.id.videoId}`} allowFullScreen></iframe>
+        <iframe className="embed-responsive-item" src={`https://www.youtube.com/embed/${video.id.videoId}${autoPlay}`} allowFullScreen></iframe>
       </div>
       <div className="video-player-details">
         <h3>{video.snippet.title}</h3>

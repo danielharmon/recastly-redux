@@ -1,17 +1,22 @@
 import React from 'react';
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
+import { connect } from 'react-redux';
 import Search from './Search.js';
 import VideoListContainer from '../containers/VideoListContainer.js';
 import VideoPlayerContainer from '../containers/VideoPlayerContainer.js';
 import SearchContainer from '../containers/SearchContainer.js';
+import toggleAutoPlay from '../actions/autoPlay.js';
 
 const App = () => {
 
 const handleToggle = () => {
   let input = document.getElementById('toggleAutoPlay');
   let label = document.getElementById('toggleAuto');
-  label.innerText = input.checked ? 'Turn AutoPlay Off' : 'Turn AutoPlay On'
+  label.innerText = input.checked ? 'Turn AutoPlay Off' : 'Turn AutoPlay On';
+  let autoPlay = input.checked ? '?mute=1&autoplay=1' : ''
+  dispatch(toggleAutoPlay(autoPlay));
+
 }
   //TODO: swap out the React components below for the container components
   //  you wrote in the 'containers' directory.
