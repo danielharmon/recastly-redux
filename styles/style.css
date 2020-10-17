@@ -8,6 +8,10 @@ label {
   margin-right: 15px;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .Auto {
   margin-top: 20px !important;
 }
