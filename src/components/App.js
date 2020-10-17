@@ -8,6 +8,8 @@ import VideoPlayerContainer from '../containers/VideoPlayerContainer.js';
 import SearchContainer from '../containers/SearchContainer.js';
 import toggleAutoPlay from '../actions/autoPlay.js';
 import store from '../store/store.js'
+import CommentContainer from '../containers/CommentContainer.js'
+import Comment from './Comment.js'
 
 const App = () => {
 
@@ -36,6 +38,7 @@ const handleToggle = () => {
         <div className="row">
           <div className="col-md-7">
             <VideoPlayerContainer />
+            <CommentContainer />
           </div>
           <div className="col-md-5">
             <VideoListContainer />
